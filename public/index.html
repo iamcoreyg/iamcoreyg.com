@@ -7,7 +7,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@100..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="/style.css">
 
@@ -36,19 +36,24 @@
     </main>
 
     <template id="entry-template">
+        <div>
     <div class="entry">
-        <a href="/entry/${id}">
-        <div class="entry-image" style="background: url('${coverImage}') center center; background-size: contain;"></div>
+        <a href="/entry/{id}">
+            <div class="entry-image" style='background: url("{coverImage}") center center; background-size: contain;'></div>
+        </a>
+        <div class="entry-metadata text-xs gray-medium">
+            <div>{date}</div>
+            <div><span class="label">{category}</span></div>
+        </div>
         <div class="entry-title text-sm">
-            <div>${title}</div>
-            <div><span class="label">${category}</span></div>
+            <div>{title}</div>
+
         </div>
         <div class="text-xs gray-medium">
-            ${date}
-            ${description}
+            {description}
         </div>
-        </a>
     </div>
+</div>
     </template>
 </body>
 </html>

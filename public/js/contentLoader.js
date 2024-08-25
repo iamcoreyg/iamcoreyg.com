@@ -48,9 +48,10 @@ export async function loadEntry(id) {
     const data = await cmsService.getEntry(id);
     const entryContainer = document.querySelector('#app');
     entryContainer.innerHTML = `
+      <a href="/">← Back to Home</a>
+      <hr />
       <h1>${data.entry.metadata.name}</h1>
       <div>${data.entry.content.content.value}</div>
-      <a href="/">Back to Home</a>
     `;
   } catch (error) {
     console.error('Failed to load entry:', error);

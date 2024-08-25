@@ -12,58 +12,39 @@ export function createEntryElement(entry) {
   }
 
   const entryElement = template.content.cloneNode(true);
+  const container = document.createElement('div');
+  container.appendChild(entryElement);
 
   try {
-    // Set link URL
-    const linkElement = entryElement.querySelector('a');
-    if (linkElement && entry.slug) {
-      linkElement.href = `/entry/${entry.slug}`;
-    }
+    // Get inner HTML and perform find-and-replace
+    let html = container.innerHTML;
 
-    // Set background image
-    const imageElement = entryElement.querySelector('.entry-image');
-    if (imageElement && entry.content?.cover?.sizes?.medium) {
-      imageElement.style.background = `url('${entry.content.cover.sizes.medium}') center center`;
-      imageElement.style.backgroundSize = 'contain';
-    }
+    html = html.replace('{id}', entry.slug || '#');
+    html = html.replace('{coverImage}', entry.content?.cover?.sizes?.medium || '');
+    html = html.replace('{title}', entry.title || 'Untitled');
+    html = html.replace('{category}', entry.content?.category?.value || 'Uncategorized');
+    html = html.replace('{date}', formatDate(entry.created_at));
+    html = html.replace('{description}', entry.description || '');
 
-    // Set title
-    const titleElement = entryElement.querySelector('.entry-title div:first-child');
-    if (titleElement) {
-      titleElement.textContent = entry.title || 'Untitled';
-    }
+    // Set the modified HTML back to the container
+    container.innerHTML = html;
 
-    // Set category
-    const categoryElement = entryElement.querySelector('.label');
-    if (categoryElement) {
-      categoryElement.textContent = entry.content?.category?.value || 'Uncategorized';
-    }
-
-    // Set date and description
-    const metaElement = entryElement.querySelector('.text-xs.gray-medium');
-    if (metaElement) {
-      metaElement.textContent = formatDateAndDescription(entry);
-    }
-
-    return entryElement;
+    return container.firstElementChild;
   } catch (error) {
     console.error('Error creating entry element:', error);
     return null;
   }
 }
 
-// Helper function to format date and add description if available
-function formatDateAndDescription(entry) {
-  if (!entry.created_at) {
+// Helper function to format date
+function formatDate(date) {
+  if (!date) {
     return 'Date unknown';
   }
 
-  const formattedDate = new Date(entry.created_at).toLocaleDateString('en-US', {
+  return new Date(date).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
     day: 'numeric'
   });
-  return entry.description
-    ? `${formattedDate} — ${entry.description}`
-    : formattedDate;
 }
