@@ -42,9 +42,18 @@ function formatDate(date) {
     return 'Date unknown';
   }
 
-  return new Date(date).toLocaleDateString('en-US', {
-    year: 'numeric',
+  const inputDate = new Date(date);
+  const currentYear = new Date().getFullYear();
+  const inputYear = inputDate.getFullYear();
+
+  const options = {
     month: 'long',
     day: 'numeric'
-  });
+  };
+
+  if (inputYear !== currentYear) {
+    options.year = 'numeric';
+  }
+
+  return inputDate.toLocaleDateString('en-US', options);
 }

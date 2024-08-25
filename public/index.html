@@ -38,7 +38,7 @@
   <template id="entry-template">
     <div>
       <div class="entry">
-        <a href="/entry/{id}">
+        <a href="/entry/{id}" class="thumbnail">
           <div class="entry-image" style='background: url("{coverImage}") center center; background-size: contain;'></div>
         </a>
         <div class="entry-metadata text-xs gray-medium">
@@ -46,8 +46,7 @@
           <div><span class="label">{category}</span></div>
         </div>
         <div class="entry-title text-sm">
-          <div>{title}</div>
-
+          <div><a href="/entry/{id}">{title}</a></div>
         </div>
         <div class="text-xs gray-medium">
           {description}

@@ -82,7 +82,7 @@ a {
 }
 
 a:hover {
-  color: #9b8eff;
+  color: #fff;
 }
 
 .text-sm {
@@ -104,16 +104,18 @@ a:hover {
   margin-bottom: 4rem;
 }
 
-.entry a {
+.entry .thumbnail {
   display: block;
   border-radius: 12px;
   border: 1px solid #3d3d3f;
   padding: 6px;
   transition: all .15s ease-in-out;
+  overflow: hidden;
 }
 
-.entry a:hover {
-  border-color: var(--primary-color);;
+.entry .thumbnail:hover {
+  border-color: var(--primary-color);
+  padding: 6px;
 }
 
 .entry-image {
