@@ -1,4 +1,5 @@
-import { loadLayoutContent, loadEntries, loadEntry } from './contentLoader.js';
+import { loadLayoutContent, loadEntries } from './contentLoader.js';
+import { loadEntry } from './entry.js';
 
 // Main application logic
 

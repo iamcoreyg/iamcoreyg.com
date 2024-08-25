@@ -1,20 +1,21 @@
 :root {
-  --font-base: 14px; /* Base font size */
-  --font-scale-ratio: 1.125; /* Scale ratio for text size adjustments */
+  --font-base: 14px;
+  --font-scale-ratio: 1.125;
 
-  /* Calculated font sizes based on the scale */
-  --font-size-xs: calc(var(--font-base) / var(--font-scale-ratio)); /* Extra small */
-  --font-size-sm: var(--font-base); /* Small (Base size) */
-  --font-size-md: calc(var(--font-base) * var(--font-scale-ratio)); /* Medium */
-  --font-size-lg: calc(var(--font-size-md) * var(--font-scale-ratio)); /* Large */
-  --font-size-xl: calc(var(--font-size-lg) * var(--font-scale-ratio)); /* Extra large */
+
+  --font-size-xs: calc(var(--font-base) / var(--font-scale-ratio));
+  --font-size-sm: var(--font-base);
+  --font-size-md: calc(var(--font-base) * var(--font-scale-ratio));
+  --font-size-lg: calc(var(--font-size-md) * var(--font-scale-ratio));
+  --font-size-xl: calc(var(--font-size-lg) * var(--font-scale-ratio));
+  --primary-color: #795dff;
 }
 
 html, body {
   font-family: "IBM Plex Sans", sans-serif;
-  background-color: #121212; /* Dark background */
-  color: #e0e0e0; /* Light text color */
-  font-size: var(--font-size-sm); /* Using small (base) font size */
+  background-color: #121212;
+  color: #e0e0e0;
+  font-size: var(--font-size-sm);
   letter-spacing: .3px;
   font-weight: 500;
   margin: 0;
@@ -25,16 +26,16 @@ html, body {
 }
 
 h1, h2, h3 {
-  font-size: var(--font-size-md); /* Medium font size for headings */
+  font-size: var(--font-size-md);
   font-weight: 400;
   margin: 0;
   padding: 0;
-  color: #ffffff; /* Light text color for headings */
+  color: #ffffff;
 }
 
 h1 {
   font-weight: 600;
-  font-size: var(--font-size-lg); /* Larger size for h1 */
+  font-size: var(--font-size-lg);
 }
 
 main {
@@ -42,21 +43,24 @@ main {
   gap: 2rem;
 }
 
+.title a {
+  color: #fff !important;
+}
+
 .info, .content {
-  padding: 2rem;
+  padding: 2.5rem;
   min-height: 100vh;
 }
 
 p {
   font-weight: 400;
-  color: #e0e0e0; /* Light text color */
-  font-size: var(--font-size-sm); /* Small (base) font size for paragraphs */
+  color: #e0e0e0;
+  font-size: var(--font-size-sm);
 }
 
 hr {
   border: none;
   margin: 1rem 0;
-  background-color: #333; /* Darker line */
   height: 1px;
 }
 
@@ -68,30 +72,30 @@ ul, li {
 
 li {
   margin-bottom: 3px;
-  color: #e0e0e0; /* Light text color */
-  font-size: var(--font-size-sm); /* Small (base) font size for list items */
+  color: #e0e0e0;
+  font-size: var(--font-size-sm);
 }
 
 a {
   text-decoration: none;
-  color: #bb86fc; /* Lighter color for links */
+  color: var(--primary-color);
 }
 
 a:hover {
-  color: #cfb3ff; /* Lighter hover color for links */
+  color: #9b8eff;
 }
 
 .text-sm {
-  font-size: var(--font-size-sm); /* Small (base) font size */
+  font-size: var(--font-size-sm);
 }
 
 .text-xs {
-  font-size: var(--font-size-xs); /* Extra small font size */
+  font-size: var(--font-size-xs);
 }
 
 .gray-medium {
-  color: #b0b0b0; /* Light gray text color */
-  font-size: var(--font-size-sm); /* Small (base) font size */
+  color: #b0b0b0;
+  font-size: var(--font-size-sm);
 }
 
 .entry {
@@ -100,11 +104,22 @@ a:hover {
   margin-bottom: 4rem;
 }
 
+.entry a {
+  display: block;
+  border-radius: 12px;
+  border: 1px solid #3d3d3f;
+  padding: 6px;
+  transition: all .15s ease-in-out;
+}
+
+.entry a:hover {
+  border-color: var(--primary-color);;
+}
+
 .entry-image {
   height: 200px;
   border-radius: 6px;
   transition: all .15s ease-in-out;
-  margin-bottom: .5rem;
 }
 
 .entry-metadata {
@@ -115,8 +130,8 @@ a:hover {
 }
 
 .entry-title {
-  color: #ffffff; /* Light text color for entry titles */
-  font-size: var(--font-size-lg); /* Larger size for entry titles */
+  color: #ffffff;
+  font-size: var(--font-size-lg);
   line-height: 1.2;
   margin-bottom: 6px;
 }
@@ -134,13 +149,21 @@ a:hover {
 }
 
 .label {
-  background: #333333; /* Darker background for labels */
+  background: #333333;
   border-radius: 4px;
-  padding: 3px 8px 0;
+  padding: 1px 5px 2px;
   font-weight: 600;
-  font-size: var(--font-size-xs); /* Extra small font size for labels */
-  color: #ffffff; /* Light text color for labels */
+  font-size: var(--font-size-xs);
+  color: #ffffff;
   text-transform: uppercase;
+}
+
+.video {
+  margin: 1rem 0;
+}
+
+.entry-show {
+  max-width: 700px;
 }
 
 @media (max-width: 733px) {

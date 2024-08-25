@@ -42,19 +42,3 @@ export async function loadEntries() {
     document.querySelector('#app').innerHTML = '<p>Failed to load entries. Please try again later.</p>';
   }
 }
-
-export async function loadEntry(id) {
-  try {
-    const data = await cmsService.getEntry(id);
-    const entryContainer = document.querySelector('#app');
-    entryContainer.innerHTML = `
-      <a href="/">← Back to Home</a>
-      <hr />
-      <h1>${data.entry.metadata.name}</h1>
-      <div>${data.entry.content.content.value}</div>
-    `;
-  } catch (error) {
-    console.error('Failed to load entry:', error);
-    document.querySelector('#app').innerHTML = '<p>Failed to load entry. Please try again later.</p>';
-  }
-}
