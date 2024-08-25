@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corey Griffin</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@100..800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/style.css">
+
+    <script src="https://cyclecms.com/cycle-sdk.js"></script>
+    <script type="module" src="/js/app.js"></script>
+</head>
+<body>
+    <main>
+        <section class="info">
+            <h1>Corey Griffin</h1>
+            <h2 class="gray-medium text-sm">From South Central, <em>with love</em>.</h2>
+
+            <hr />
+
+            <ul class="bio text-xs" data-cycle="bio"></ul>
+
+            <hr />
+            <h3 class="gray-medium text-sm">Links</h3>
+            <ul class="links text-xs" data-cycle="links"></ul>
+        </section>
+
+        <section id="app" class="content">
+            <!-- Content will be loaded here by JavaScript -->
+        </section>
+    </main>
+
+    <template id="entry-template">
+    <div class="entry">
+        <a href="/entry/${id}">
+        <div class="entry-image" style="background: url('${coverImage}') center center; background-size: contain;"></div>
+        <div class="entry-title">
+            <div>${title}</div>
+            <div><span class="label">${category}</span></div>
+        </div>
+        <div class="text-xs gray-medium">
+            ${date}
+            ${description}
+        </div>
+        </a>
+    </div>
+    </template>
+</body>
+</html>
