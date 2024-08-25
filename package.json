@@ -2,19 +2,26 @@
   "name": "iamcoreyg",
   "version": "1.0.0",
   "description": "Personal blog and projects site for Corey G",
-  "main": "index.js",
+  "engines": {
+    "node": "20.x"
+  },
+  "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "engines": {
-    "node": "20.x"
   },
   "dependencies": {
     "express": "^4.19.2"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
-  }
+  },
+  "keywords": [
+    "personal site",
+    "blog",
+    "projects"
+  ],
+  "license": "MIT",
+  "private": true
 }
