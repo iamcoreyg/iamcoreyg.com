@@ -17,6 +17,10 @@ h1, h2, h3 {
   padding: 0;
 }
 
+h1 {
+  font-weight: 600;
+}
+
 main {
   display: flex;
   gap: 2rem;
